@@ -1,12 +1,16 @@
 const express=require('express');
 app= express();
 const PORT=3000;
-
+app.use(express.json())
 const mongoose = require('mongoose');
 
-const mongo='mongodb+srv://rania:rania@work.errgaiy.mongodb.net/ecommerce?retryWrites=true&w=majority&appName=work'
+const mongo='mongodb+srv://manarbouoni:Mongodb@cluster0.spd71gk.mongodb.net/ecommerce?retryWrites=true&w=majority&appName=Cluster0'
+
+
 mongoose.connect(mongo);
+
 const database = mongoose.connection;
+
 database.on('error', (error) => {
     console.log(error)
 })
@@ -14,6 +18,10 @@ database.on('error', (error) => {
 database.once('connected', () => {
     console.log('Database Connected');
 });
+
+//client routes
+const clientroutes= require('./routes/clientRoutes')
+app.use('/client',clientroutes);
 
 
 app.listen(PORT, () => {
