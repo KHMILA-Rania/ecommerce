@@ -1,0 +1,27 @@
+.container{
+    padding:5%;
+}
+.container .img{
+    text-align:center;
+   
+}
+.container .details{
+    border-left:20% solid #ded4da;
+    padding-left: 10%;
+}
+.container .details p{
+    font-size:15px;
+    font-weight:bold;
+}
+
+.img-rounded{
+    height: 50%;
+
+}
+.details{
+    margin-left: 0;
+    font-size: 30%;
+}
+.more-details{
+    padding-top: 5%;
+}
