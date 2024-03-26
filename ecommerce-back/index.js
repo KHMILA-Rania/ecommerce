@@ -1,13 +1,14 @@
+require('dotenv').config();
 const express=require('express');
-app= express();
+const app= express();
 const PORT=3000;
 app.use(express.json())
 const mongoose = require('mongoose');
 
-const mongo='mongodb+srv://manarbouoni:Mongodb@cluster0.spd71gk.mongodb.net/ecommerce?retryWrites=true&w=majority&appName=Cluster0'
 
+const mongo=process.env.db
 
-mongoose.connect(mongo);
+mongoose.connect(mongo, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const database = mongoose.connection;
 
